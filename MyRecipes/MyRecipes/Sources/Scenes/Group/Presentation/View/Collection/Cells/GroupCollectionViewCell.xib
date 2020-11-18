@@ -17,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAh-mJ-hSN">
-                        <rect key="frame" x="0.0" y="0.0" width="515" height="134"/>
+                        <rect key="frame" x="20" y="0.0" width="475" height="134"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amJ-vZ-Jl4">
-                                <rect key="frame" x="8" y="52" width="499" height="40"/>
+                                <rect key="frame" x="8" y="52" width="459" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -39,13 +39,14 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="FAh-mJ-hSN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="BWp-OT-f7q"/>
+                <constraint firstItem="FAh-mJ-hSN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" id="0Bm-7t-GEE"/>
                 <constraint firstItem="FAh-mJ-hSN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MBv-S2-inl"/>
-                <constraint firstAttribute="trailing" secondItem="FAh-mJ-hSN" secondAttribute="trailing" id="ZqC-mX-5wz"/>
+                <constraint firstAttribute="trailingMargin" secondItem="FAh-mJ-hSN" secondAttribute="trailing" id="MWD-6N-df9"/>
                 <constraint firstAttribute="bottom" secondItem="FAh-mJ-hSN" secondAttribute="bottom" id="mmO-5Q-JN4"/>
             </constraints>
             <size key="customSize" width="515" height="134"/>
             <connections>
+                <outlet property="containerView" destination="FAh-mJ-hSN" id="p9A-gn-F17"/>
                 <outlet property="titleLabel" destination="amJ-vZ-Jl4" id="kRT-1R-CLF"/>
             </connections>
             <point key="canvasLocation" x="474.63768115942031" y="137.94642857142856"/>

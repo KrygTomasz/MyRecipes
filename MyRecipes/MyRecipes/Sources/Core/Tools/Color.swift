@@ -14,15 +14,15 @@ final class Color {
     private(set) var tertiary: UIColor
     
     var dynamicPrimary: UIColor {
-        return primary.asDynamic(onDark: .black)
+        return primary.onDark( .black)
     }
     
     var dynamicSecondary: UIColor {
-        return secondary.asDynamic(onDark: .black)
+        return secondary.onDark( .black)
     }
     
     var dynamicTertiary: UIColor {
-        return tertiary.asDynamic(onDark: .black)
+        return tertiary.onDark( .black)
     }
     
     private enum Constants {

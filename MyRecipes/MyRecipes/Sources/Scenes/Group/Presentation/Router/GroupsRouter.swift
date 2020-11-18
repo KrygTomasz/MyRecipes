@@ -18,7 +18,8 @@ final class GroupsRouter: BaseRouter<GroupsChannel> {
     
     override init() {
         super.init()
-        self.viewModel = GroupsViewModel(route: channel.accept)
+        self.viewModel = GroupsViewModel(route: channel.accept,
+                                         groupsProvider: StubGroupsProvider())
         self.viewController = GroupsViewController(viewModel: viewModel)
     }
     

@@ -11,6 +11,7 @@
 		0A560EC825657A30000BF6E1 /* GroupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A560EC625657A30000BF6E1 /* GroupCollectionViewCell.xib */; };
 		0A560ED625657D99000BF6E1 /* GroupsCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A560ED525657D99000BF6E1 /* GroupsCollectionViewAdapter.swift */; };
 		0A560EDC25657DCF000BF6E1 /* GroupsCellProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A560EDB25657DCF000BF6E1 /* GroupsCellProvider.swift */; };
+		0A560EE525657E15000BF6E1 /* GroupViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A560EE425657E15000BF6E1 /* GroupViewData.swift */; };
 		0AA31A0C2564246F0014D879 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA31A0B2564246F0014D879 /* Assets.xcassets */; };
 		0AA31A0F2564246F0014D879 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA31A0D2564246F0014D879 /* LaunchScreen.storyboard */; };
 		0AA31A1A2564246F0014D879 /* MyRecipesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA31A192564246F0014D879 /* MyRecipesTests.swift */; };
@@ -36,7 +37,12 @@
 		0AA31A89256431D00014D879 /* GroupsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA31A88256431D00014D879 /* GroupsRouter.swift */; };
 		0AA31A922564321B0014D879 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA31A902564321B0014D879 /* GroupsViewController.swift */; };
 		0AA31A932564321B0014D879 /* GroupsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA31A912564321B0014D879 /* GroupsViewController.xib */; };
-		0AA31AA6256432BF0014D879 /* UIColor+Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA31AA5256432BF0014D879 /* UIColor+Dynamic.swift */; };
+		0AA31AA6256432BF0014D879 /* UIColor+OnDark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA31AA5256432BF0014D879 /* UIColor+OnDark.swift */; };
+		0AFFB78F2565824B008954EA /* UIView+Margin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB78E2565824B008954EA /* UIView+Margin.swift */; };
+		0AFFB79525658859008954EA /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB79425658859008954EA /* Group.swift */; };
+		0AFFB7A0256588A8008954EA /* StubGroupsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB79F256588A8008954EA /* StubGroupsProvider.swift */; };
+		0AFFB7A9256588D2008954EA /* GroupsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7A8256588D2008954EA /* GroupsProvider.swift */; };
+		0AFFB7B125658935008954EA /* GroupsViewDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7B025658935008954EA /* GroupsViewDataMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +67,7 @@
 		0A560EC625657A30000BF6E1 /* GroupCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupCollectionViewCell.xib; sourceTree = "<group>"; };
 		0A560ED525657D99000BF6E1 /* GroupsCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		0A560EDB25657DCF000BF6E1 /* GroupsCellProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCellProvider.swift; sourceTree = "<group>"; };
+		0A560EE425657E15000BF6E1 /* GroupViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewData.swift; sourceTree = "<group>"; };
 		0AA319FF2564246E0014D879 /* MyRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA31A0B2564246F0014D879 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AA31A0E2564246F0014D879 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -90,7 +97,12 @@
 		0AA31A88256431D00014D879 /* GroupsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsRouter.swift; sourceTree = "<group>"; };
 		0AA31A902564321B0014D879 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		0AA31A912564321B0014D879 /* GroupsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupsViewController.xib; sourceTree = "<group>"; };
-		0AA31AA5256432BF0014D879 /* UIColor+Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Dynamic.swift"; sourceTree = "<group>"; };
+		0AA31AA5256432BF0014D879 /* UIColor+OnDark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+OnDark.swift"; sourceTree = "<group>"; };
+		0AFFB78E2565824B008954EA /* UIView+Margin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Margin.swift"; sourceTree = "<group>"; };
+		0AFFB79425658859008954EA /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		0AFFB79F256588A8008954EA /* StubGroupsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubGroupsProvider.swift; sourceTree = "<group>"; };
+		0AFFB7A8256588D2008954EA /* GroupsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsProvider.swift; sourceTree = "<group>"; };
+		0AFFB7B025658935008954EA /* GroupsViewDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewDataMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +149,14 @@
 				0A560EDB25657DCF000BF6E1 /* GroupsCellProvider.swift */,
 			);
 			path = Collection;
+			sourceTree = "<group>";
+		};
+		0A560EE325657E0A000BF6E1 /* ViewData */ = {
+			isa = PBXGroup;
+			children = (
+				0A560EE425657E15000BF6E1 /* GroupViewData.swift */,
+			);
+			path = ViewData;
 			sourceTree = "<group>";
 		};
 		0AA319F62564246E0014D879 = {
@@ -223,7 +243,7 @@
 		0AA31A3E256424EF0014D879 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				0AA31AA5256432BF0014D879 /* UIColor+Dynamic.swift */,
+				0AA31AA5256432BF0014D879 /* UIColor+OnDark.swift */,
 				0AA31A3F256424EF0014D879 /* Collection+Safe.swift */,
 				0AA31A40256424EF0014D879 /* HapticFeedback.swift */,
 				0AA31A41256424EF0014D879 /* Color.swift */,
@@ -280,19 +300,20 @@
 		0AA31A76256431920014D879 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				0AA31A77256431960014D879 /* Home */,
+				0AA31A77256431960014D879 /* Group */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		0AA31A77256431960014D879 /* Home */ = {
+		0AA31A77256431960014D879 /* Group */ = {
 			isa = PBXGroup;
 			children = (
-				0AA31A7A256431A30014D879 /* ViewModel */,
-				0AA31A792564319F0014D879 /* View */,
-				0AA31A782564319A0014D879 /* Router */,
+				0AFFB7A7256588B3008954EA /* API */,
+				0AFFB79E2565889A008954EA /* Infrastructure */,
+				0AFFB79D25658873008954EA /* Domain */,
+				0AFFB79C25658864008954EA /* Presentation */,
 			);
-			path = Home;
+			path = Group;
 			sourceTree = "<group>";
 		};
 		0AA31A782564319A0014D879 /* Router */ = {
@@ -332,8 +353,53 @@
 		0AA31AA4256432B00014D879 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0AFFB78E2565824B008954EA /* UIView+Margin.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0AFFB79325658851008954EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0AFFB79425658859008954EA /* Group.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0AFFB79C25658864008954EA /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				0A560EE325657E0A000BF6E1 /* ViewData */,
+				0AA31A7A256431A30014D879 /* ViewModel */,
+				0AA31A792564319F0014D879 /* View */,
+				0AA31A782564319A0014D879 /* Router */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		0AFFB79D25658873008954EA /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				0AFFB79325658851008954EA /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		0AFFB79E2565889A008954EA /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				0AFFB79F256588A8008954EA /* StubGroupsProvider.swift */,
+				0AFFB7B025658935008954EA /* GroupsViewDataMapper.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		0AFFB7A7256588B3008954EA /* API */ = {
+			isa = PBXGroup;
+			children = (
+				0AFFB7A8256588D2008954EA /* GroupsProvider.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,15 +542,21 @@
 			files = (
 				0AA31A7C256431AE0014D879 /* GroupsViewModel.swift in Sources */,
 				0AA31A5D256424EF0014D879 /* RouterChannel.swift in Sources */,
+				0AFFB7A0256588A8008954EA /* StubGroupsProvider.swift in Sources */,
 				0AA31A922564321B0014D879 /* GroupsViewController.swift in Sources */,
+				0AFFB79525658859008954EA /* Group.swift in Sources */,
 				0AA31A5C256424EF0014D879 /* Router.swift in Sources */,
 				0AA31A53256424EF0014D879 /* Collection+Safe.swift in Sources */,
 				0AA31A89256431D00014D879 /* GroupsRouter.swift in Sources */,
 				0AA31A55256424EF0014D879 /* Color.swift in Sources */,
+				0A560EE525657E15000BF6E1 /* GroupViewData.swift in Sources */,
+				0AFFB78F2565824B008954EA /* UIView+Margin.swift in Sources */,
 				0AA31A5F256424EF0014D879 /* AppDelegate.swift in Sources */,
 				0A560EC725657A30000BF6E1 /* GroupCollectionViewCell.swift in Sources */,
 				0AA31A5A256424EF0014D879 /* Margin.swift in Sources */,
-				0AA31AA6256432BF0014D879 /* UIColor+Dynamic.swift in Sources */,
+				0AA31AA6256432BF0014D879 /* UIColor+OnDark.swift in Sources */,
+				0AFFB7B125658935008954EA /* GroupsViewDataMapper.swift in Sources */,
+				0AFFB7A9256588D2008954EA /* GroupsProvider.swift in Sources */,
 				0AA31A56256424EF0014D879 /* UICollectionView+Register.swift in Sources */,
 				0A560ED625657D99000BF6E1 /* GroupsCollectionViewAdapter.swift in Sources */,
 				0AA31A61256424EF0014D879 /* SceneDelegate.swift in Sources */,
