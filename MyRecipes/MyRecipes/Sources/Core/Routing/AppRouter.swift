@@ -7,14 +7,32 @@
 //
 
 import UIKit
+import RxSwift
 
 final class AppRouter {
+    private let disposeBag: DisposeBag = DisposeBag()
     private let navigationController: NavigationController = NavigationController()
+    
     private var activeRouters: [Router] = []
 
-    private init() { }
+    private init() {
+        bindBackButton()
+    }
     
     static let shared: AppRouter = .init()
+    
+    private func bindBackButton() {
+        navigationController.rx.willShow.subscribe(onNext: { [weak self] view, _ in
+            guard
+                let self = self,
+                self.activeRouters.count > 1, // avoids activeRouters.count == 1 when the app launches
+                self.activeRouters.last?.routingViewController.hashValue != view.hashValue // avoids pushed VCs (if last vc is equal to the shown one, then push action occurred; we're looking only for back actions)
+            else { return }
+            let viewIndex = self.activeRouters.map { $0.routingViewController.hashValue }.firstIndex(of: view.hashValue)
+            guard let goBackIndex = viewIndex else { return }
+            self.activeRouters.removeSubrange((goBackIndex+1...self.activeRouters.count - 1))
+        }).disposed(by: disposeBag)
+    }
     
     func start(with window: UIWindow?) {
         window?.rootViewController = navigationController
@@ -22,8 +40,8 @@ final class AppRouter {
     }
     
     func push(_ router: Router) {
-        navigationController.pushViewController(router.routingViewController, animated: true)
         activeRouters.append(router)
+        navigationController.pushViewController(router.routingViewController, animated: true)
     }
     
     func pop() {
