@@ -18,7 +18,6 @@
 		0AA31A252564246F0014D879 /* MyRecipesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA31A242564246F0014D879 /* MyRecipesUITests.swift */; };
 		0AA31A53256424EF0014D879 /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA31A3F256424EF0014D879 /* Collection+Safe.swift */; };
 		0AA31A54256424EF0014D879 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA31A40256424EF0014D879 /* HapticFeedback.swift */; };
-		0AA31A55256424EF0014D879 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA31A41256424EF0014D879 /* Color.swift */; };
 		0AA31A56256424EF0014D879 /* UICollectionView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA31A44256424EF0014D879 /* UICollectionView+Register.swift */; };
 		0AA31A57256424EF0014D879 /* UICollectionViewCellProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA31A45256424EF0014D879 /* UICollectionViewCellProvider.swift */; };
 		0AA31A58256424EF0014D879 /* UITableViewCellProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA31A47256424EF0014D879 /* UITableViewCellProvider.swift */; };
@@ -43,6 +42,11 @@
 		0AFFB7A0256588A8008954EA /* StubGroupsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB79F256588A8008954EA /* StubGroupsProvider.swift */; };
 		0AFFB7A9256588D2008954EA /* GroupsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7A8256588D2008954EA /* GroupsProvider.swift */; };
 		0AFFB7B125658935008954EA /* GroupsViewDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7B025658935008954EA /* GroupsViewDataMapper.swift */; };
+		0AFFB7BA25658ADA008954EA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7B925658ADA008954EA /* Theme.swift */; };
+		0AFFB7C225659297008954EA /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7C125659297008954EA /* UIColor+Hex.swift */; };
+		0AFFB7C8256592BF008954EA /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7C7256592BF008954EA /* ThemeColors.swift */; };
+		0AFFB7D1256592D6008954EA /* DefaultThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7D0256592D6008954EA /* DefaultThemeColors.swift */; };
+		0AFFB7DA256592F5008954EA /* StaticColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7D9256592F5008954EA /* StaticColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +84,6 @@
 		0AA31A262564246F0014D879 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA31A3F256424EF0014D879 /* Collection+Safe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		0AA31A40256424EF0014D879 /* HapticFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
-		0AA31A41256424EF0014D879 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		0AA31A44256424EF0014D879 /* UICollectionView+Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Register.swift"; sourceTree = "<group>"; };
 		0AA31A45256424EF0014D879 /* UICollectionViewCellProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellProvider.swift; sourceTree = "<group>"; };
 		0AA31A47256424EF0014D879 /* UITableViewCellProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellProvider.swift; sourceTree = "<group>"; };
@@ -103,6 +106,11 @@
 		0AFFB79F256588A8008954EA /* StubGroupsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubGroupsProvider.swift; sourceTree = "<group>"; };
 		0AFFB7A8256588D2008954EA /* GroupsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsProvider.swift; sourceTree = "<group>"; };
 		0AFFB7B025658935008954EA /* GroupsViewDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewDataMapper.swift; sourceTree = "<group>"; };
+		0AFFB7B925658ADA008954EA /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		0AFFB7C125659297008954EA /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		0AFFB7C7256592BF008954EA /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
+		0AFFB7D0256592D6008954EA /* DefaultThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultThemeColors.swift; sourceTree = "<group>"; };
+		0AFFB7D9256592F5008954EA /* StaticColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +237,7 @@
 		0AA31A3D256424EF0014D879 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0AFFB7C6256592AE008954EA /* Theme */,
 				0AA31A3E256424EF0014D879 /* Tools */,
 				0AA31A42256424EF0014D879 /* CellProviders */,
 				0AA31A49256424EF0014D879 /* Margins */,
@@ -246,7 +255,7 @@
 				0AA31AA5256432BF0014D879 /* UIColor+OnDark.swift */,
 				0AA31A3F256424EF0014D879 /* Collection+Safe.swift */,
 				0AA31A40256424EF0014D879 /* HapticFeedback.swift */,
-				0AA31A41256424EF0014D879 /* Color.swift */,
+				0AFFB7C125659297008954EA /* UIColor+Hex.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -402,6 +411,33 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		0AFFB7C6256592AE008954EA /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				0AFFB7D8256592EE008954EA /* Static */,
+				0AFFB7CF256592CA008954EA /* ThemeColors */,
+				0AFFB7B925658ADA008954EA /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		0AFFB7CF256592CA008954EA /* ThemeColors */ = {
+			isa = PBXGroup;
+			children = (
+				0AFFB7C7256592BF008954EA /* ThemeColors.swift */,
+				0AFFB7D0256592D6008954EA /* DefaultThemeColors.swift */,
+			);
+			path = ThemeColors;
+			sourceTree = "<group>";
+		};
+		0AFFB7D8256592EE008954EA /* Static */ = {
+			isa = PBXGroup;
+			children = (
+				0AFFB7D9256592F5008954EA /* StaticColors.swift */,
+			);
+			path = Static;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -546,9 +582,11 @@
 				0AA31A922564321B0014D879 /* GroupsViewController.swift in Sources */,
 				0AFFB79525658859008954EA /* Group.swift in Sources */,
 				0AA31A5C256424EF0014D879 /* Router.swift in Sources */,
+				0AFFB7C8256592BF008954EA /* ThemeColors.swift in Sources */,
 				0AA31A53256424EF0014D879 /* Collection+Safe.swift in Sources */,
 				0AA31A89256431D00014D879 /* GroupsRouter.swift in Sources */,
-				0AA31A55256424EF0014D879 /* Color.swift in Sources */,
+				0AFFB7C225659297008954EA /* UIColor+Hex.swift in Sources */,
+				0AFFB7DA256592F5008954EA /* StaticColors.swift in Sources */,
 				0A560EE525657E15000BF6E1 /* GroupViewData.swift in Sources */,
 				0AFFB78F2565824B008954EA /* UIView+Margin.swift in Sources */,
 				0AA31A5F256424EF0014D879 /* AppDelegate.swift in Sources */,
@@ -562,10 +600,12 @@
 				0AA31A61256424EF0014D879 /* SceneDelegate.swift in Sources */,
 				0AA31A60256424EF0014D879 /* NavigationController.swift in Sources */,
 				0AA31A5E256424EF0014D879 /* BaseRouter.swift in Sources */,
+				0AFFB7BA25658ADA008954EA /* Theme.swift in Sources */,
 				0AA31A54256424EF0014D879 /* HapticFeedback.swift in Sources */,
 				0AA31A58256424EF0014D879 /* UITableViewCellProvider.swift in Sources */,
 				0A560EDC25657DCF000BF6E1 /* GroupsCellProvider.swift in Sources */,
 				0AA31A59256424EF0014D879 /* UITableView+Register.swift in Sources */,
+				0AFFB7D1256592D6008954EA /* DefaultThemeColors.swift in Sources */,
 				0AA31A5B256424EF0014D879 /* AppRouter.swift in Sources */,
 				0AA31A57256424EF0014D879 /* UICollectionViewCellProvider.swift in Sources */,
 			);

@@ -8,10 +8,15 @@
 import UIKit
 
 struct GroupsViewDataMapper {
-    private static let color: UIColor = UIColor.white.onDark(.black)
-    private static let textColor: UIColor = UIColor.black.onDark(.white)
+    private let color: UIColor
+    private let textColor: UIColor
+    
+    init(color: UIColor, textColor: UIColor) {
+        self.color = color
+        self.textColor = textColor
+    }
 
-    static func map(_ groups: [[Group]]) -> [[GroupViewData]] {
+    func map(_ groups: [[Group]]) -> [[GroupViewData]] {
         groups.map { section in
             section.enumerated().map { index, group in
                 let first = index == 0

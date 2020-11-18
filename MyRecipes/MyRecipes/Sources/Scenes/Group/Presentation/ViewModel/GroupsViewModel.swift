@@ -14,7 +14,6 @@ final class GroupsViewModel {
     }
     
     struct Output {
-        let color: Color
         let viewData: [[GroupViewData]]
     }
     
@@ -29,10 +28,8 @@ final class GroupsViewModel {
     }
     
     func transform(input: Input) {
-        let color = Color.random
         let groups = groupsProvider.fetch()
-        let viewData = GroupsViewDataMapper.map(groups)
-        output = Output(color: color,
-                        viewData: viewData)
+        let viewData = GroupsViewDataMapper(color: Theme.default.colors.list, textColor: Theme.default.colors.primaryText).map(groups)
+        output = Output(viewData: viewData)
     }
 }

@@ -19,7 +19,7 @@ final class GroupsViewController: UIViewController {
         self.viewModel = viewModel
         viewModel.transform(input: .init())
         super.init(nibName: String(describing: GroupsViewController.self), bundle: Bundle(for: GroupsViewController.self))
-        view.backgroundColor = viewModel.output.color.dynamicPrimary
+        view.backgroundColor = Theme.default.colors.background
         title = "Groups"
     }
     
