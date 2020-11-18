@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  GroupsViewModel.swift
 //  MyRecipes
 //
 //  Created by Krygu on 17/11/2020.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class HomeViewModel {
+final class GroupsViewModel {
     
     struct Input {
         
@@ -18,9 +18,9 @@ final class HomeViewModel {
     }
     
     var output: Output!
-    private var route: (HomeChannel) -> Void
+    private var route: (GroupsChannel) -> Void
     
-    init(route: @escaping (HomeChannel) -> Void) {
+    init(route: @escaping (GroupsChannel) -> Void) {
         self.route = route
     }
     
