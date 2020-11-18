@@ -12,5 +12,6 @@ final class NavigationController: UINavigationController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         navigationBar.prefersLargeTitles = true
+        navigationBar.tintColor = Theme.default.colors.primary
     }
 }

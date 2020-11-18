@@ -6,21 +6,18 @@
 //
 
 import UIKit
-import RxCocoa
 
 final class GroupsViewController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     private let viewModel: GroupsViewModel
     private let adapter: GroupsCollectionViewAdapter = GroupsCollectionViewAdapter()
     
     init(viewModel: GroupsViewModel) {
         self.viewModel = viewModel
-        viewModel.transform(input: .init())
         super.init(nibName: String(describing: GroupsViewController.self), bundle: Bundle(for: GroupsViewController.self))
         view.backgroundColor = Theme.default.colors.background
-        title = "Groups"
     }
     
     required init?(coder: NSCoder) {
@@ -30,5 +27,7 @@ final class GroupsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         adapter.setup(collectionView: collectionView, viewModel: viewModel)
+        viewModel.transform(input: .init(onItemSelected: collectionView.rx.itemSelected.asSignal()))
+        title = viewModel.output.title
     }
 }

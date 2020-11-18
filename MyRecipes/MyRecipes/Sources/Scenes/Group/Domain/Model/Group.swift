@@ -8,5 +8,5 @@
 import Foundation
 
 public struct Group {
-    var title: String
+    var name: String
 }

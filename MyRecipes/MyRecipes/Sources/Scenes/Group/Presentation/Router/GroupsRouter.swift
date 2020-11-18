@@ -8,7 +8,7 @@
 import UIKit
 
 enum GroupsChannel: RouterChannel {
-    
+    case group(Group)
 }
 
 final class GroupsRouter: BaseRouter<GroupsChannel> {
@@ -16,16 +16,18 @@ final class GroupsRouter: BaseRouter<GroupsChannel> {
     private var viewModel: GroupsViewModel!
     private var viewController: GroupsViewController!
     
-    override init() {
+    init(group: Group) {
         super.init()
         self.viewModel = GroupsViewModel(route: channel.accept,
+                                         title: group.name,
                                          groupsProvider: StubGroupsProvider())
         self.viewController = GroupsViewController(viewModel: viewModel)
     }
     
     override func handle(_ channel: GroupsChannel) {
         switch channel {
-        
+        case .group(let group):
+            GroupsRouter(group: group).route()
         }
     }
 }

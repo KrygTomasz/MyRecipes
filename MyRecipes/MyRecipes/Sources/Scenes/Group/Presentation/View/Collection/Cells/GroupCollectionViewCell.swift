@@ -9,21 +9,35 @@ import UIKit
 
 class GroupCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var arrowImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupView()
+    }
+    
+    private func setupView() {
+        arrowImageView.image = UIImage(named: "rightArrow")?.withRenderingMode(.alwaysTemplate)
+        arrowImageView.tintColor = Theme.default.colors.primary
+        contentView.setWideMargins()
+        containerView.setMargin(vertical: .zero, horizontal: .medium)
     }
     
     func configure(with viewData: GroupViewData) {
         titleLabel.text = viewData.title
         titleLabel.textColor = viewData.titleColor
         containerView.backgroundColor = viewData.color
+        roundCorners(with: viewData)
+    }
+    
+    // MARK: – Helpers
+    
+    private func roundCorners(with viewData: GroupViewData) {
         if viewData.roundTop && viewData.roundBottom { roundAll() }
         else if viewData.roundTop { roundTop() }
         else if viewData.roundBottom { roundBottom() }
-        contentView.setWideMargins()
     }
     
     private func roundTop() {

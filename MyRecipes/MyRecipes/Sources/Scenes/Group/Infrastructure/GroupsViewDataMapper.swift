@@ -21,7 +21,7 @@ struct GroupsViewDataMapper {
             section.enumerated().map { index, group in
                 let first = index == 0
                 let last = index == section.count - 1
-                return GroupViewData(title: group.title, color: color, titleColor: textColor, roundTop: first, roundBottom: last)
+                return GroupViewData(title: group.name, color: color, titleColor: textColor, roundTop: first, roundBottom: last)
             }
         }
     }

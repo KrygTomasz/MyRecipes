@@ -8,9 +8,13 @@
 import UIKit
 
 extension UIView {
-    func setMargin(_ margin: Margin) {
-        directionalLayoutMargins = .init(top: margin, leading: margin, bottom: margin, trailing: margin)
+    func setMargin(vertical: Margin, horizontal: Margin) {
+        directionalLayoutMargins = .init(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
         preservesSuperviewLayoutMargins = false
+    }
+    
+    func setMargin(_ margin: Margin) {
+        setMargin(vertical: margin, horizontal: margin)
     }
     
     func setSmallMargins() {

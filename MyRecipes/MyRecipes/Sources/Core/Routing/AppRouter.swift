@@ -18,7 +18,7 @@ final class AppRouter {
     
     func start(with window: UIWindow?) {
         window?.rootViewController = navigationController
-        GroupsRouter().route()
+        GroupsRouter(group: Group(name: "Groups")).route()
     }
     
     func push(_ router: Router) {
