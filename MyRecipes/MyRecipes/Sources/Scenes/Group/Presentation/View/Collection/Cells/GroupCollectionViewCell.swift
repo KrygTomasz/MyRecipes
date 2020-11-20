@@ -19,9 +19,8 @@ class GroupCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupView() {
-        arrowImageView.image = UIImage(named: "rightArrow")?.withRenderingMode(.alwaysTemplate)
         arrowImageView.tintColor = Theme.default.colors.primary
-        contentView.setWideMargins()
+        contentView.setMediumMargins()
         containerView.setMargin(vertical: .zero, horizontal: .medium)
     }
     

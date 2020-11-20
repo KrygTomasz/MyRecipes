@@ -19,8 +19,7 @@ final class GroupsRouter: BaseRouter<GroupsChannel> {
     init(group: Group) {
         super.init()
         self.viewModel = GroupsViewModel(route: channel.accept,
-                                         title: group.name,
-                                         parentGroup: group)
+                                         group: group)
         self.viewController = GroupsViewController(viewModel: viewModel)
     }
     

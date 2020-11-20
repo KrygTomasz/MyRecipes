@@ -12,7 +12,9 @@ final class NavigationController: UINavigationController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         navigationBar.prefersLargeTitles = true
+        isToolbarHidden = false
         navigationBar.tintColor = Theme.default.colors.primary
+        toolbar.tintColor = Theme.default.colors.primary
     }
     
     func pushViewController(_ viewController: UIViewController, animated: Bool, completion: @escaping () -> Void) {

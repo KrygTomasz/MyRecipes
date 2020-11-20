@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxCocoa
 
 final class GroupsViewController: UIViewController {
     
@@ -13,11 +14,12 @@ final class GroupsViewController: UIViewController {
     
     private let viewModel: GroupsViewModel
     private let adapter: GroupsCollectionViewAdapter = GroupsCollectionViewAdapter()
+    private let newGroupTrigger: PublishRelay<Void> = PublishRelay()
+    private let newNoteTrigger: PublishRelay<Void> = PublishRelay()
     
     init(viewModel: GroupsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: String(describing: GroupsViewController.self), bundle: Bundle(for: GroupsViewController.self))
-        view.backgroundColor = Theme.default.colors.background
     }
     
     required init?(coder: NSCoder) {
@@ -26,8 +28,42 @@ final class GroupsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Theme.default.colors.background
         adapter.setup(collectionView: collectionView, viewModel: viewModel)
-        viewModel.transform(input: .init(onItemSelected: collectionView.rx.itemSelected.asSignal()))
+        viewModel.transform(input: .init(onItemSelected: collectionView.rx.itemSelected.asSignal(),
+                                         onNewGroupClicked: newGroupTrigger.asSignal(),
+                                         onNewNoteClicked: newNoteTrigger.asSignal()))
         title = viewModel.output.title
+        setupToolbar()
+    }
+    
+    private func setupToolbar() {
+        var items = [UIBarButtonItem]()
+        items.append(
+            UIBarButtonItem(image: UIImage(systemName: "folder.badge.plus")?.withRenderingMode(.alwaysTemplate),
+                            style: .plain,
+                            target: self,
+                            action: #selector(onNewGroupClicked))
+        )
+        items.append(
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                            target: nil,
+                            action: nil)
+        )
+        items.append(
+            UIBarButtonItem(image: UIImage(systemName: "square.and.pencil")?.withRenderingMode(.alwaysTemplate),
+                            style: .plain,
+                            target: self,
+                            action: #selector(onNewNoteClicked))
+        )
+        toolbarItems = items
+    }
+    
+    @objc private func onNewGroupClicked() {
+        newGroupTrigger.accept(())
+    }
+    
+    @objc private func onNewNoteClicked() {
+        newNoteTrigger.accept(())
     }
 }

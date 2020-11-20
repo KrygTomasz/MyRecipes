@@ -13,6 +13,8 @@ final class GroupsViewModel {
     
     struct Input {
         let onItemSelected: Signal<IndexPath>
+        let onNewGroupClicked: Signal<Void>
+        let onNewNoteClicked: Signal<Void>
     }
     
     struct Output {
@@ -23,29 +25,34 @@ final class GroupsViewModel {
     var output: Output!
     private let disposeBag: DisposeBag = DisposeBag()
     private var route: (GroupsChannel) -> Void
-    private let title: String
-    private let parentGroup: Group
+    private let group: Group
     
     init(route: @escaping (GroupsChannel) -> Void,
-         title: String,
-         parentGroup: Group) {
+         group: Group) {
         self.route = route
-        self.title = title
-        self.parentGroup = parentGroup
+        self.group = group
     }
     
     func transform(input: Input) {
-        let groups = parentGroup.groups
+        let groups = group.groups
         let viewData = GroupsViewDataMapper(color: Theme.default.colors.list, textColor: Theme.default.colors.primaryText).map([groups])
-        output = Output(title: title, viewData: viewData)
+        output = Output(title: group.name, viewData: viewData)
         bind(input: input)
     }
     
     private func bind(input: Input) {
         input.onItemSelected.emit(onNext: { [weak self] indexPath in
             guard let self = self else { return }
-            guard let group = self.parentGroup.groups[safe: indexPath.item] else { return }
-            self.route(.group(group))
+            guard let selectedGroup = self.group.groups[safe: indexPath.item] else { return }
+            self.route(.group(selectedGroup))
+        }).disposed(by: disposeBag)
+        
+        input.onNewGroupClicked.emit(onNext: { [weak self] _ in
+            print("NEW GROUP FOR \(self?.group.name)")
+        }).disposed(by: disposeBag)
+        
+        input.onNewNoteClicked.emit(onNext: { [weak self] _ in
+            print("NEW NOTE FOR \(self?.group.name)")
         }).disposed(by: disposeBag)
     }
 }
