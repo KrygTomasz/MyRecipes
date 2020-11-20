@@ -20,7 +20,7 @@ final class GroupsRouter: BaseRouter<GroupsChannel> {
         super.init()
         self.viewModel = GroupsViewModel(route: channel.accept,
                                          title: group.name,
-                                         groupsProvider: StubGroupsProvider())
+                                         parentGroup: group)
         self.viewController = GroupsViewController(viewModel: viewModel)
     }
     

@@ -7,6 +7,14 @@
 
 import Foundation
 
-public struct Group {
+public class Group {
+    var id: Int
     var name: String
+    var groups: [Group]
+    
+    init(id: Int, name: String, groups: [Group]) {
+        self.id = id
+        self.name = name
+        self.groups = groups
+    }
 }

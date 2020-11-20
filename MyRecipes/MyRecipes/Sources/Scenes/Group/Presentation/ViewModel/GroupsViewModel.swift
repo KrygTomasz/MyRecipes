@@ -24,27 +24,28 @@ final class GroupsViewModel {
     private let disposeBag: DisposeBag = DisposeBag()
     private var route: (GroupsChannel) -> Void
     private let title: String
-    private let groupsProvider: GroupsProvider
+    private let parentGroup: Group
     
     init(route: @escaping (GroupsChannel) -> Void,
          title: String,
-         groupsProvider: GroupsProvider) {
+         parentGroup: Group) {
         self.route = route
-        self.groupsProvider = groupsProvider
         self.title = title
+        self.parentGroup = parentGroup
     }
     
     func transform(input: Input) {
-        let groups = groupsProvider.fetch()
-        let viewData = GroupsViewDataMapper(color: Theme.default.colors.list, textColor: Theme.default.colors.primaryText).map(groups)
+        let groups = parentGroup.groups
+        let viewData = GroupsViewDataMapper(color: Theme.default.colors.list, textColor: Theme.default.colors.primaryText).map([groups])
         output = Output(title: title, viewData: viewData)
         bind(input: input)
     }
     
     private func bind(input: Input) {
         input.onItemSelected.emit(onNext: { [weak self] indexPath in
-            guard let group = self?.groupsProvider.fetch()[safe: indexPath.section]?[safe: indexPath.item] else { return }
-            self?.route(.group(group))
+            guard let self = self else { return }
+            guard let group = self.parentGroup.groups[safe: indexPath.item] else { return }
+            self.route(.group(group))
         }).disposed(by: disposeBag)
     }
 }

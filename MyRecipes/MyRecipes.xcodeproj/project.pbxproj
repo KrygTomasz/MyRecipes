@@ -12,6 +12,12 @@
 		0A560ED625657D99000BF6E1 /* GroupsCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A560ED525657D99000BF6E1 /* GroupsCollectionViewAdapter.swift */; };
 		0A560EDC25657DCF000BF6E1 /* GroupsCellProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A560EDB25657DCF000BF6E1 /* GroupsCellProvider.swift */; };
 		0A560EE525657E15000BF6E1 /* GroupViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A560EE425657E15000BF6E1 /* GroupViewData.swift */; };
+		0A64569425673B350007C110 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A64569325673B350007C110 /* CoreDataController.swift */; };
+		0A64569925673B710007C110 /* CDGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A64569825673B710007C110 /* CDGroupController.swift */; };
+		0A64569F25673B9C0007C110 /* CDGroupMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A64569E25673B9C0007C110 /* CDGroupMapper.swift */; };
+		0A8BD9D62566CC070084ED9F /* CDGroup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BD9D42566CC070084ED9F /* CDGroup+CoreDataProperties.swift */; };
+		0A8BD9D72566CC070084ED9F /* CDGroup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BD9D52566CC070084ED9F /* CDGroup+CoreDataClass.swift */; };
+		0A9093602565BFC400890BEF /* MyRecipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A90935E2565BFC400890BEF /* MyRecipes.xcdatamodeld */; };
 		0AA31A0C2564246F0014D879 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA31A0B2564246F0014D879 /* Assets.xcassets */; };
 		0AA31A0F2564246F0014D879 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA31A0D2564246F0014D879 /* LaunchScreen.storyboard */; };
 		0AA31A1A2564246F0014D879 /* MyRecipesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA31A192564246F0014D879 /* MyRecipesTests.swift */; };
@@ -39,8 +45,8 @@
 		0AA31AA6256432BF0014D879 /* UIColor+OnDark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA31AA5256432BF0014D879 /* UIColor+OnDark.swift */; };
 		0AFFB78F2565824B008954EA /* UIView+Margin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB78E2565824B008954EA /* UIView+Margin.swift */; };
 		0AFFB79525658859008954EA /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB79425658859008954EA /* Group.swift */; };
-		0AFFB7A0256588A8008954EA /* StubGroupsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB79F256588A8008954EA /* StubGroupsProvider.swift */; };
-		0AFFB7A9256588D2008954EA /* GroupsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7A8256588D2008954EA /* GroupsProvider.swift */; };
+		0AFFB7A0256588A8008954EA /* CoreDataGroupsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB79F256588A8008954EA /* CoreDataGroupsService.swift */; };
+		0AFFB7A9256588D2008954EA /* GroupsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7A8256588D2008954EA /* GroupsService.swift */; };
 		0AFFB7B125658935008954EA /* GroupsViewDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7B025658935008954EA /* GroupsViewDataMapper.swift */; };
 		0AFFB7BA25658ADA008954EA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7B925658ADA008954EA /* Theme.swift */; };
 		0AFFB7C225659297008954EA /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7C125659297008954EA /* UIColor+Hex.swift */; };
@@ -72,6 +78,12 @@
 		0A560ED525657D99000BF6E1 /* GroupsCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		0A560EDB25657DCF000BF6E1 /* GroupsCellProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCellProvider.swift; sourceTree = "<group>"; };
 		0A560EE425657E15000BF6E1 /* GroupViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewData.swift; sourceTree = "<group>"; };
+		0A64569325673B350007C110 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		0A64569825673B710007C110 /* CDGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDGroupController.swift; sourceTree = "<group>"; };
+		0A64569E25673B9C0007C110 /* CDGroupMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDGroupMapper.swift; sourceTree = "<group>"; };
+		0A8BD9D42566CC070084ED9F /* CDGroup+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDGroup+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0A8BD9D52566CC070084ED9F /* CDGroup+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDGroup+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0A90935F2565BFC400890BEF /* MyRecipes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyRecipes.xcdatamodel; sourceTree = "<group>"; };
 		0AA319FF2564246E0014D879 /* MyRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA31A0B2564246F0014D879 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AA31A0E2564246F0014D879 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,8 +115,8 @@
 		0AA31AA5256432BF0014D879 /* UIColor+OnDark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+OnDark.swift"; sourceTree = "<group>"; };
 		0AFFB78E2565824B008954EA /* UIView+Margin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Margin.swift"; sourceTree = "<group>"; };
 		0AFFB79425658859008954EA /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		0AFFB79F256588A8008954EA /* StubGroupsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubGroupsProvider.swift; sourceTree = "<group>"; };
-		0AFFB7A8256588D2008954EA /* GroupsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsProvider.swift; sourceTree = "<group>"; };
+		0AFFB79F256588A8008954EA /* CoreDataGroupsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataGroupsService.swift; sourceTree = "<group>"; };
+		0AFFB7A8256588D2008954EA /* GroupsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsService.swift; sourceTree = "<group>"; };
 		0AFFB7B025658935008954EA /* GroupsViewDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewDataMapper.swift; sourceTree = "<group>"; };
 		0AFFB7B925658ADA008954EA /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		0AFFB7C125659297008954EA /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
@@ -167,6 +179,24 @@
 			path = ViewData;
 			sourceTree = "<group>";
 		};
+		0A64569225673B2C0007C110 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0A64569325673B350007C110 /* CoreDataController.swift */,
+				0A64569825673B710007C110 /* CDGroupController.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		0A64569D25673B8D0007C110 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				0AFFB7B025658935008954EA /* GroupsViewDataMapper.swift */,
+				0A64569E25673B9C0007C110 /* CDGroupMapper.swift */,
+			);
+			path = Mappers;
+			sourceTree = "<group>";
+		};
 		0AA319F62564246E0014D879 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +222,7 @@
 			children = (
 				0AA31A36256424AF0014D879 /* Resources */,
 				0AA31A35256424A90014D879 /* Sources */,
+				0A90935E2565BFC400890BEF /* MyRecipes.xcdatamodeld */,
 			);
 			path = MyRecipes;
 			sourceTree = "<group>";
@@ -370,6 +401,8 @@
 		0AFFB79325658851008954EA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0A8BD9D52566CC070084ED9F /* CDGroup+CoreDataClass.swift */,
+				0A8BD9D42566CC070084ED9F /* CDGroup+CoreDataProperties.swift */,
 				0AFFB79425658859008954EA /* Group.swift */,
 			);
 			path = Model;
@@ -397,8 +430,9 @@
 		0AFFB79E2565889A008954EA /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				0AFFB79F256588A8008954EA /* StubGroupsProvider.swift */,
-				0AFFB7B025658935008954EA /* GroupsViewDataMapper.swift */,
+				0A64569D25673B8D0007C110 /* Mappers */,
+				0A64569225673B2C0007C110 /* CoreData */,
+				0AFFB79F256588A8008954EA /* CoreDataGroupsService.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -406,7 +440,7 @@
 		0AFFB7A7256588B3008954EA /* API */ = {
 			isa = PBXGroup;
 			children = (
-				0AFFB7A8256588D2008954EA /* GroupsProvider.swift */,
+				0AFFB7A8256588D2008954EA /* GroupsService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -578,28 +612,34 @@
 			files = (
 				0AA31A7C256431AE0014D879 /* GroupsViewModel.swift in Sources */,
 				0AA31A5D256424EF0014D879 /* RouterChannel.swift in Sources */,
-				0AFFB7A0256588A8008954EA /* StubGroupsProvider.swift in Sources */,
+				0AFFB7A0256588A8008954EA /* CoreDataGroupsService.swift in Sources */,
+				0A9093602565BFC400890BEF /* MyRecipes.xcdatamodeld in Sources */,
 				0AA31A922564321B0014D879 /* GroupsViewController.swift in Sources */,
 				0AFFB79525658859008954EA /* Group.swift in Sources */,
 				0AA31A5C256424EF0014D879 /* Router.swift in Sources */,
 				0AFFB7C8256592BF008954EA /* ThemeColors.swift in Sources */,
 				0AA31A53256424EF0014D879 /* Collection+Safe.swift in Sources */,
 				0AA31A89256431D00014D879 /* GroupsRouter.swift in Sources */,
+				0A8BD9D72566CC070084ED9F /* CDGroup+CoreDataClass.swift in Sources */,
 				0AFFB7C225659297008954EA /* UIColor+Hex.swift in Sources */,
 				0AFFB7DA256592F5008954EA /* StaticColors.swift in Sources */,
 				0A560EE525657E15000BF6E1 /* GroupViewData.swift in Sources */,
+				0A64569425673B350007C110 /* CoreDataController.swift in Sources */,
 				0AFFB78F2565824B008954EA /* UIView+Margin.swift in Sources */,
 				0AA31A5F256424EF0014D879 /* AppDelegate.swift in Sources */,
 				0A560EC725657A30000BF6E1 /* GroupCollectionViewCell.swift in Sources */,
 				0AA31A5A256424EF0014D879 /* Margin.swift in Sources */,
 				0AA31AA6256432BF0014D879 /* UIColor+OnDark.swift in Sources */,
 				0AFFB7B125658935008954EA /* GroupsViewDataMapper.swift in Sources */,
-				0AFFB7A9256588D2008954EA /* GroupsProvider.swift in Sources */,
+				0AFFB7A9256588D2008954EA /* GroupsService.swift in Sources */,
 				0AA31A56256424EF0014D879 /* UICollectionView+Register.swift in Sources */,
+				0A64569925673B710007C110 /* CDGroupController.swift in Sources */,
 				0A560ED625657D99000BF6E1 /* GroupsCollectionViewAdapter.swift in Sources */,
 				0AA31A61256424EF0014D879 /* SceneDelegate.swift in Sources */,
 				0AA31A60256424EF0014D879 /* NavigationController.swift in Sources */,
 				0AA31A5E256424EF0014D879 /* BaseRouter.swift in Sources */,
+				0A8BD9D62566CC070084ED9F /* CDGroup+CoreDataProperties.swift in Sources */,
+				0A64569F25673B9C0007C110 /* CDGroupMapper.swift in Sources */,
 				0AFFB7BA25658ADA008954EA /* Theme.swift in Sources */,
 				0AA31A54256424EF0014D879 /* HapticFeedback.swift in Sources */,
 				0AA31A58256424EF0014D879 /* UITableViewCellProvider.swift in Sources */,
@@ -956,6 +996,19 @@
 			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		0A90935E2565BFC400890BEF /* MyRecipes.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0A90935F2565BFC400890BEF /* MyRecipes.xcdatamodel */,
+			);
+			currentVersion = 0A90935F2565BFC400890BEF /* MyRecipes.xcdatamodel */;
+			path = MyRecipes.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0AA319F72564246E0014D879 /* Project object */;
 }
