@@ -53,6 +53,7 @@
 		0AFFB7C8256592BF008954EA /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7C7256592BF008954EA /* ThemeColors.swift */; };
 		0AFFB7D1256592D6008954EA /* DefaultThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7D0256592D6008954EA /* DefaultThemeColors.swift */; };
 		0AFFB7DA256592F5008954EA /* StaticColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7D9256592F5008954EA /* StaticColors.swift */; };
+		231D31CD25699A4E007437B9 /* HalfModalActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D31CC25699A4E007437B9 /* HalfModalActivityViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		0AFFB7C7256592BF008954EA /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
 		0AFFB7D0256592D6008954EA /* DefaultThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultThemeColors.swift; sourceTree = "<group>"; };
 		0AFFB7D9256592F5008954EA /* StaticColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticColors.swift; sourceTree = "<group>"; };
+		231D31CC25699A4E007437B9 /* HalfModalActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalActivityViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				0AA31AA4256432B00014D879 /* Extensions */,
+				231D31CC25699A4E007437B9 /* HalfModalActivityViewController.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				0AA31A59256424EF0014D879 /* UITableView+Register.swift in Sources */,
 				0AFFB7D1256592D6008954EA /* DefaultThemeColors.swift in Sources */,
 				0AA31A5B256424EF0014D879 /* AppRouter.swift in Sources */,
+				231D31CD25699A4E007437B9 /* HalfModalActivityViewController.swift in Sources */,
 				0AA31A57256424EF0014D879 /* UICollectionViewCellProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
