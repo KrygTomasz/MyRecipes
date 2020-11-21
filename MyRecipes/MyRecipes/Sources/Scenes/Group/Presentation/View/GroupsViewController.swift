@@ -37,6 +37,10 @@ final class GroupsViewController: UIViewController {
         setupToolbar()
     }
     
+    override func viewDidLayoutSubviews() {
+        adapter.layoutStyle.accept(.table)
+    }
+    
     private func setupToolbar() {
         var items = [UIBarButtonItem]()
         items.append(

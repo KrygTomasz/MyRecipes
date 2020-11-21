@@ -6,24 +6,73 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+
+enum GroupsCollectionViewLayoutStyle {
+    case table, collection
+}
 
 final class GroupsCollectionViewAdapter: NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Properties
     
-    weak var viewModel: GroupsViewModel!
+    private enum Constants {
+        static let tableCellHeight: CGFloat = 48.0
+    }
+    
+    private weak var collectionView: UICollectionView!
+    private weak var viewModel: GroupsViewModel!
+    private let disposeBag: DisposeBag = DisposeBag()
+    
+    let layoutStyle: PublishRelay<GroupsCollectionViewLayoutStyle> = PublishRelay()
+    
+    private func prepareTableLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: collectionView.bounds.width, height: Constants.tableCellHeight)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        return layout
+    }
+    
+    private func prepareCollectionLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        let size = collectionView.bounds.width / 2
+        layout.itemSize = CGSize(width: size, height: size)
+        layout.minimumLineSpacing = .medium
+        layout.minimumInteritemSpacing = 0
+        return layout
+    }
     
     // MARK: - Setup
     
     func setup(collectionView: UICollectionView, viewModel: GroupsViewModel) {
+        self.collectionView = collectionView
         self.viewModel = viewModel
         collectionView.register(cells: GroupsCellProvider.self)
         collectionView.delegate = self
         collectionView.dataSource = self
+        binding()
+    }
+    
+    private func binding() {
+        layoutStyle.subscribe(onNext: { [weak self] layout in
+            self?.setupLayout(layout)
+        })
+        .disposed(by: disposeBag)
+    }
+    
+    private func setupLayout(_ layout: GroupsCollectionViewLayoutStyle) {
+        switch layout {
+        case .table:
+            collectionView.setCollectionViewLayout(prepareTableLayout(), animated: true)
+        case .collection:
+            collectionView.setCollectionViewLayout(prepareCollectionLayout(), animated: true)
+        }
     }
     
     // MARK: - Delegates
-    
+        
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return viewModel.output.viewData.count
     }
@@ -37,25 +86,5 @@ final class GroupsCollectionViewAdapter: NSObject, UICollectionViewDelegate, UIC
         guard let viewData = viewModel.output.viewData[safe: indexPath.section]?[safe: indexPath.item] else { return cell }
         cell.configure(with: viewData)
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return cellSize(for: collectionView)
-    }
-    
-    // MARK: - Helpers
-    
-    private func cellSize(for collectionView: UICollectionView) -> CGSize {
-        let width = collectionView.bounds.width
-        let height: CGFloat = 48.0
-        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.0
     }
 }
