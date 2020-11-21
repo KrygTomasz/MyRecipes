@@ -54,6 +54,8 @@
 		0AFFB7D1256592D6008954EA /* DefaultThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7D0256592D6008954EA /* DefaultThemeColors.swift */; };
 		0AFFB7DA256592F5008954EA /* StaticColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFB7D9256592F5008954EA /* StaticColors.swift */; };
 		231D31CD25699A4E007437B9 /* HalfModalActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D31CC25699A4E007437B9 /* HalfModalActivityViewController.swift */; };
+		231D31DE2569D485007437B9 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D31DD2569D485007437B9 /* UIView+AutoLayout.swift */; };
+		231D31E32569D79B007437B9 /* LabelCollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D31E22569D79B007437B9 /* LabelCollectionHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +127,8 @@
 		0AFFB7D0256592D6008954EA /* DefaultThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultThemeColors.swift; sourceTree = "<group>"; };
 		0AFFB7D9256592F5008954EA /* StaticColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticColors.swift; sourceTree = "<group>"; };
 		231D31CC25699A4E007437B9 /* HalfModalActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalActivityViewController.swift; sourceTree = "<group>"; };
+		231D31DD2569D485007437B9 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		231D31E22569D79B007437B9 /* LabelCollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +393,7 @@
 			children = (
 				0AA31AA4256432B00014D879 /* Extensions */,
 				231D31CC25699A4E007437B9 /* HalfModalActivityViewController.swift */,
+				231D31E22569D79B007437B9 /* LabelCollectionHeader.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -397,6 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				0AFFB78E2565824B008954EA /* UIView+Margin.swift */,
+				231D31DD2569D485007437B9 /* UIView+AutoLayout.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -626,6 +632,7 @@
 				0AFFB7A0256588A8008954EA /* CoreDataGroupsService.swift in Sources */,
 				0A9093602565BFC400890BEF /* MyRecipes.xcdatamodeld in Sources */,
 				0AA31A922564321B0014D879 /* GroupsViewController.swift in Sources */,
+				231D31DE2569D485007437B9 /* UIView+AutoLayout.swift in Sources */,
 				0AFFB79525658859008954EA /* Group.swift in Sources */,
 				0AA31A5C256424EF0014D879 /* Router.swift in Sources */,
 				0AFFB7C8256592BF008954EA /* ThemeColors.swift in Sources */,
@@ -659,6 +666,7 @@
 				0AFFB7D1256592D6008954EA /* DefaultThemeColors.swift in Sources */,
 				0AA31A5B256424EF0014D879 /* AppRouter.swift in Sources */,
 				231D31CD25699A4E007437B9 /* HalfModalActivityViewController.swift in Sources */,
+				231D31E32569D79B007437B9 /* LabelCollectionHeader.swift in Sources */,
 				0AA31A57256424EF0014D879 /* UICollectionViewCellProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

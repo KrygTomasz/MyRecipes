@@ -19,6 +19,7 @@ final class GroupsCollectionViewAdapter: NSObject, UICollectionViewDelegate, UIC
     
     private enum Constants {
         static let tableCellHeight: CGFloat = 48.0
+        static let headerHeight: CGFloat = 64.0
     }
     
     private weak var collectionView: UICollectionView!
@@ -38,7 +39,7 @@ final class GroupsCollectionViewAdapter: NSObject, UICollectionViewDelegate, UIC
     private func prepareCollectionLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         let size = collectionView.bounds.width / 2
-        layout.itemSize = CGSize(width: size, height: size)
+        layout.itemSize = CGSize(width: size, height: Constants.tableCellHeight * 2)
         layout.minimumLineSpacing = .medium
         layout.minimumInteritemSpacing = 0
         return layout
@@ -50,6 +51,7 @@ final class GroupsCollectionViewAdapter: NSObject, UICollectionViewDelegate, UIC
         self.collectionView = collectionView
         self.viewModel = viewModel
         collectionView.register(cells: GroupsCellProvider.self)
+        collectionView.register(LabelCollectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
         collectionView.delegate = self
         collectionView.dataSource = self
         binding()
@@ -86,5 +88,19 @@ final class GroupsCollectionViewAdapter: NSObject, UICollectionViewDelegate, UIC
         guard let viewData = viewModel.output.viewData.value[safe: indexPath.section]?[safe: indexPath.item] else { return cell }
         cell.configure(with: viewData)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+             let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as! LabelCollectionHeader
+             sectionHeader.label.text = "Groups"
+             return sectionHeader
+        } else {
+             return UICollectionReusableView()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: Constants.headerHeight)
     }
 }
