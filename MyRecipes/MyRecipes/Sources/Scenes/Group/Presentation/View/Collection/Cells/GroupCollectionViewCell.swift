@@ -11,6 +11,7 @@ class GroupCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var numberLabel: UILabel!
     @IBOutlet private weak var arrowImageView: UIImageView!
     
     override func awakeFromNib() {
@@ -27,6 +28,8 @@ class GroupCollectionViewCell: UICollectionViewCell {
     func configure(with viewData: GroupViewData) {
         titleLabel.text = viewData.title
         titleLabel.textColor = viewData.titleColor
+        numberLabel.text = viewData.quantityText
+        numberLabel.textColor = viewData.quantityColor
         containerView.backgroundColor = viewData.color
         roundCorners(with: viewData)
     }

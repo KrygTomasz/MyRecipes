@@ -63,7 +63,7 @@ final class GroupsViewModel {
     
     private func refreshData() {
         guard let updatedGroup = groupService.fetch(id: group.id) else { return }
-        let viewData = GroupsViewDataMapper(color: Theme.default.colors.list, textColor: Theme.default.colors.primaryText).map([updatedGroup.groups])
+        let viewData = GroupsViewDataMapper.map([updatedGroup.groups])
         self.output.viewData.accept(viewData)
     }
 }

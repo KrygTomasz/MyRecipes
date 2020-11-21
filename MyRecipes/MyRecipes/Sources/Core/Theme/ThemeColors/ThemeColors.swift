@@ -12,4 +12,5 @@ protocol ThemeColors {
     var background: UIColor { get }
     var list: UIColor { get }
     var primaryText: UIColor { get }
+    var secondaryText: UIColor { get }
 }

@@ -12,4 +12,5 @@ class DefaultThemeColors: ThemeColors {
     let background: UIColor = StaticColors.lightGray.onDark(.black)
     let list: UIColor = UIColor.white.onDark(StaticColors.darkGray)
     let primaryText: UIColor = UIColor.black.onDark(.white)
+    let secondaryText: UIColor = StaticColors.smokeGray.onDark(StaticColors.mediumGray)
 }
