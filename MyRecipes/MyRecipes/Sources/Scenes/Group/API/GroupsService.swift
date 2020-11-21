@@ -9,4 +9,5 @@ import Foundation
 
 public protocol GroupsService  {
     func fetchParent() -> Group?
+    func create(named: String, parentId: Int)
 }

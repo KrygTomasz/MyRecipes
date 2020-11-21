@@ -36,9 +36,10 @@ final class AppRouter {
     
     func start(with window: UIWindow?) {
         window?.rootViewController = navigationController
-        CoreDataGroupsService().tryToInitialize()
-        guard let parentGroup = CoreDataGroupsService().fetchParent() else { return }
-        GroupsRouter(group: parentGroup).route()
+        let groupService = CoreDataGroupsService()
+        groupService.tryToInitialize()
+        guard let parentGroup = groupService.fetchParent() else { return }
+        GroupsRouter(group: parentGroup, groupService: groupService).route()
     }
     
     func push(_ router: Router) {

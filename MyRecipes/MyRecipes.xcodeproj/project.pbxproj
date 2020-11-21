@@ -401,8 +401,7 @@
 		0AFFB79325658851008954EA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0A8BD9D52566CC070084ED9F /* CDGroup+CoreDataClass.swift */,
-				0A8BD9D42566CC070084ED9F /* CDGroup+CoreDataProperties.swift */,
+				233D2B8A2569744500DE6E7B /* CoreData */,
 				0AFFB79425658859008954EA /* Group.swift */,
 			);
 			path = Model;
@@ -470,6 +469,15 @@
 				0AFFB7D9256592F5008954EA /* StaticColors.swift */,
 			);
 			path = Static;
+			sourceTree = "<group>";
+		};
+		233D2B8A2569744500DE6E7B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0A8BD9D52566CC070084ED9F /* CDGroup+CoreDataClass.swift */,
+				0A8BD9D42566CC070084ED9F /* CDGroup+CoreDataProperties.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

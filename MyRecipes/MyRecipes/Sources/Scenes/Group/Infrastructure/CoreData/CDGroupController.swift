@@ -9,10 +9,11 @@ import CoreData
 
 class CDGroupController: CoreDataController {
     @discardableResult
-    func createGroup(named: String, for parent: CDGroup?) -> CDGroup {
+    func createGroup(named name: String, for parent: CDGroup?) -> CDGroup {
         let group = CDGroup(context: context)
-        group.name = named
-        group.identifier = NSNumber(value: Date().timeIntervalSince1970.hashValue)
+        let id = Int(Date().timeIntervalSince1970 * 1000000)
+        group.identifier = NSNumber(value: id)
+        group.name = name
         if let parent = parent {
             group.parent = parent
             parent.addToGroups(group)

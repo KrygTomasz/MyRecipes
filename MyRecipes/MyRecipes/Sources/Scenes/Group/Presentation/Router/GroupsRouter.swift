@@ -16,9 +16,13 @@ final class GroupsRouter: BaseRouter<GroupsChannel> {
     private var viewModel: GroupsViewModel!
     private var viewController: GroupsViewController!
     
-    init(group: Group) {
+    private let groupService: GroupsService
+    
+    init(group: Group, groupService: GroupsService) {
+        self.groupService = groupService
         super.init()
         self.viewModel = GroupsViewModel(route: channel.accept,
+                                         groupService: groupService,
                                          group: group)
         self.viewController = GroupsViewController(viewModel: viewModel)
     }
@@ -26,7 +30,7 @@ final class GroupsRouter: BaseRouter<GroupsChannel> {
     override func handle(_ channel: GroupsChannel) {
         switch channel {
         case .group(let group):
-            GroupsRouter(group: group).route()
+            GroupsRouter(group: group, groupService: groupService).route()
         }
     }
 }
