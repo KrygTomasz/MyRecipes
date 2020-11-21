@@ -74,16 +74,16 @@ final class GroupsCollectionViewAdapter: NSObject, UICollectionViewDelegate, UIC
     // MARK: - Delegates
         
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return viewModel.output.viewData.count
+        return viewModel.output.viewData.value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.output.viewData[safe: section]?.count ?? 0
+        return viewModel.output.viewData.value[safe: section]?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GroupsCellProvider.group.id, for: indexPath) as! GroupCollectionViewCell
-        guard let viewData = viewModel.output.viewData[safe: indexPath.section]?[safe: indexPath.item] else { return cell }
+        guard let viewData = viewModel.output.viewData.value[safe: indexPath.section]?[safe: indexPath.item] else { return cell }
         cell.configure(with: viewData)
         return cell
     }

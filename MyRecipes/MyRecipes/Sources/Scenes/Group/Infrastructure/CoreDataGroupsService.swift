@@ -13,8 +13,8 @@ struct CoreDataGroupsService: GroupsService {
     let controller: CDGroupController = CDGroupController()
     
     func tryToInitialize() {
-        guard fetchParent() == nil else { return }
-        let group = controller.createGroup(named: "Groups", for: nil)
+        guard fetchMain() == nil else { return }
+        let group = controller.createGroup(named: "Home", for: nil)
         let group1 = controller.createGroup(named: "Groups 1", for: group)
         controller.createGroup(named: "Groups 2", for: group)
         controller.createGroup(named: "Groups 3", for: group)
@@ -22,44 +22,26 @@ struct CoreDataGroupsService: GroupsService {
         controller.createGroup(named: "Groups 5", for: group1)
     }
     
-    func fetchParent() -> Group? {
-        do {
-            let request = CDGroup.fetchRequest() as NSFetchRequest<CDGroup>
-            request.predicate = NSPredicate(format: "parent = nil")
-            let groups = try controller.context.fetch(request)
-            let group = groups.first
-            return CDGroupMapper.map(group)
-        } catch {
-            return nil
-        }
+    func fetchMain() -> Group? {
+        let group = controller.fetch(predicate: mainPredicate)
+        return CDGroupMapper.map(group)
     }
     
     func create(named: String, parentId: Int) {
-        guard let parent = fetch(id: parentId) else { return }
+        guard let parent = controller.fetch(predicate: idPredicate(parentId)) else { return }
         controller.createGroup(named: named, for: parent)
     }
     
-    private func fetch(id: Int) -> CDGroup? {
-        do {
-            let request = CDGroup.fetchRequest() as NSFetchRequest<CDGroup>
-            request.predicate = NSPredicate(format: "identifier = \(id)")
-            let groups = try controller.context.fetch(request)
-            return groups.first
-        } catch {
-            return nil
-        }
+    func fetch(id: Int) -> Group? {
+        let group = controller.fetch(predicate: idPredicate(id))
+        return CDGroupMapper.map(group)
     }
+        
+    // MARK: – Predicates
     
-//    func fetch(for parent: Group) -> [Group?] {  // call every time the item is clicked????
-//        do {
-//            let controller = CDGroupController()
-//            let request = CDGroup.fetchRequest() as NSFetchRequest<CDGroup>
-//            request.predicate = NSPredicate(format: "identifier == %@", parent.id)
-//            let groups = try controller.context.fetch(request)
-//            let group = groups.first
-//            return CDGroupMapper.map(group)
-//        } catch {
-//            return nil
-//        }
-//    }
+    private let mainPredicate: NSPredicate = NSPredicate(format: "parent = nil")
+    
+    private func idPredicate(_ id: Int) -> NSPredicate {
+        return NSPredicate(format: "identifier = \(id)")
+    }
 }

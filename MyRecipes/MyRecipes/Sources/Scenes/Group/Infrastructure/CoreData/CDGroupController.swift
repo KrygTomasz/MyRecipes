@@ -21,4 +21,15 @@ class CDGroupController: CoreDataController {
         save(group)
         return group
     }
+    
+    func fetch(predicate: NSPredicate) -> CDGroup? {
+        do {
+            let request = CDGroup.fetchRequest() as NSFetchRequest<CDGroup>
+            request.predicate = predicate
+            let groups = try context.fetch(request)
+            return groups.first
+        } catch {
+            return nil
+        }
+    }
 }

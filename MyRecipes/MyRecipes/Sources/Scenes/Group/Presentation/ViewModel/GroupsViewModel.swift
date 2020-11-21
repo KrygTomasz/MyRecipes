@@ -19,7 +19,7 @@ final class GroupsViewModel {
     
     struct Output {
         let title: String
-        let viewData: [[GroupViewData]]
+        let viewData: BehaviorRelay<[[GroupViewData]]> = BehaviorRelay(value: [])
     }
     
     var output: Output!
@@ -37,9 +37,8 @@ final class GroupsViewModel {
     }
     
     func transform(input: Input) {
-        let groups = group.groups
-        let viewData = GroupsViewDataMapper(color: Theme.default.colors.list, textColor: Theme.default.colors.primaryText).map([groups])
-        output = Output(title: group.name, viewData: viewData)
+        output = Output(title: group.name)
+        refreshData()
         bind(input: input)
     }
     
@@ -53,11 +52,18 @@ final class GroupsViewModel {
         input.onNewGroupClicked.emit(onNext: { [weak self] _ in
             guard let self = self else { return }
             self.groupService.create(named: "Test", parentId: self.group.id)
+            self.refreshData()
             print("NEW GROUP FOR \(self.group.name)")
         }).disposed(by: disposeBag)
         
         input.onNewNoteClicked.emit(onNext: { [weak self] _ in
             print("NEW NOTE FOR \(self?.group.name)")
         }).disposed(by: disposeBag)
+    }
+    
+    private func refreshData() {
+        guard let updatedGroup = groupService.fetch(id: group.id) else { return }
+        let viewData = GroupsViewDataMapper(color: Theme.default.colors.list, textColor: Theme.default.colors.primaryText).map([updatedGroup.groups])
+        self.output.viewData.accept(viewData)
     }
 }

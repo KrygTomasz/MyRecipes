@@ -7,11 +7,13 @@
 
 import UIKit
 import RxCocoa
+import RxSwift
 
 final class GroupsViewController: UIViewController {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     
+    private let disposeBag: DisposeBag = DisposeBag()
     private let viewModel: GroupsViewModel
     private let adapter: GroupsCollectionViewAdapter = GroupsCollectionViewAdapter()
     private let newGroupTrigger: PublishRelay<Void> = PublishRelay()
@@ -35,6 +37,14 @@ final class GroupsViewController: UIViewController {
                                          onNewNoteClicked: newNoteTrigger.asSignal()))
         title = viewModel.output.title
         setupToolbar()
+        binding()
+    }
+    
+    private func binding() {
+        viewModel.output.viewData.asDriver().drive(onNext: { [weak self] _ in
+            self?.collectionView.reloadData()
+        })
+        .disposed(by: disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
