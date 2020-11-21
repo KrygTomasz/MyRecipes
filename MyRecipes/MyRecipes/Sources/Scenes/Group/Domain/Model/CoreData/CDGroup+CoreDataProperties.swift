@@ -16,7 +16,7 @@ extension CDGroup {
         return NSFetchRequest<CDGroup>(entityName: "CDGroup")
     }
     
-    @NSManaged public var identifier: NSNumber
+    @NSManaged public var identifier: Int64
     @NSManaged public var name: String?
     @NSManaged public var groups: NSSet?
     @NSManaged public var parent: CDGroup?

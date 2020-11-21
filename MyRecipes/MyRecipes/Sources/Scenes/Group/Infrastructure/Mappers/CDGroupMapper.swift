@@ -10,7 +10,7 @@ import CoreData
 struct CDGroupMapper {
     static func map(_ cdGroup: CDGroup?) -> Group? {
         guard let cdGroup = cdGroup else { return nil }
-        let id = cdGroup.identifier.intValue
+        let id = Int(cdGroup.identifier)
         let name = cdGroup.name
         let children = Array<CDGroup>.init(cdGroup.groups as! Set<CDGroup>)
         let groups = children.compactMap { map($0) }.sorted { (lhs, rhs) -> Bool in
