@@ -26,7 +26,7 @@ final class GroupsViewModel {
     private let disposeBag: DisposeBag = DisposeBag()
     private var route: (GroupsChannel) -> Void
     private let groupService: GroupsService
-    private let group: Group
+    private var group: Group
     
     init(route: @escaping (GroupsChannel) -> Void,
          groupService: GroupsService,
@@ -34,6 +34,13 @@ final class GroupsViewModel {
         self.route = route
         self.groupService = groupService
         self.group = group
+        groupService.addUpdateDelegate { [weak self] in
+            self?.refreshData()
+        }
+    }
+    
+    deinit {
+        groupService.removeLastUpdateDelegate()
     }
     
     func transform(input: Input) {
@@ -63,6 +70,7 @@ final class GroupsViewModel {
     
     private func refreshData() {
         guard let updatedGroup = groupService.fetch(id: group.id) else { return }
+        self.group = updatedGroup
         let viewData = GroupsViewDataMapper.map([updatedGroup.groups])
         self.output.viewData.accept(viewData)
     }

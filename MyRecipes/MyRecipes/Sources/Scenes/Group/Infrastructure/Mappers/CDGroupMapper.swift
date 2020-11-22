@@ -14,7 +14,7 @@ struct CDGroupMapper {
         let name = cdGroup.name
         let children = Array<CDGroup>.init(cdGroup.groups as! Set<CDGroup>)
         let groups = children.compactMap { map($0) }.sorted { (lhs, rhs) -> Bool in
-            lhs.name < rhs.name
+            (lhs.name, lhs.id) < (rhs.name, rhs.id)
         }
         return Group(id: id, name: name ?? "Default", groups: groups)
     }

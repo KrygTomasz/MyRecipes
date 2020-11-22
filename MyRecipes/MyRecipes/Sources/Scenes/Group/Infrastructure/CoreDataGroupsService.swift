@@ -10,8 +10,8 @@ import CoreData
 import UIKit
 
 struct CoreDataGroupsService: GroupsService {
-    let controller: CDGroupController = CDGroupController()
-    
+    private let controller: CDGroupController = CDGroupController()
+        
     func tryToInitialize() {
         guard fetchMain() == nil else { return }
         let group = controller.createGroup(named: "Home", for: nil)
@@ -35,6 +35,14 @@ struct CoreDataGroupsService: GroupsService {
     func fetch(id: Int) -> Group? {
         let group = controller.fetch(predicate: idPredicate(id))
         return CDGroupMapper.map(group)
+    }
+    
+    func addUpdateDelegate(_ updateTrigger: @escaping () -> Void) {
+        controller.updateDelegates.append(updateTrigger)
+    }
+    
+    func removeLastUpdateDelegate() {
+        controller.updateDelegates.removeLast()
     }
         
     // MARK: – Predicates

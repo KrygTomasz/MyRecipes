@@ -7,9 +7,11 @@
 
 import CoreData
 
-class CoreDataController {
+class CoreDataController {    
+    var updateDelegates: [() -> Void] = []
+
     private let persistentContainer = NSPersistentContainer(name: "MyRecipes")
-    var context: NSManagedObjectContext {
+    public var context: NSManagedObjectContext {
         return self.persistentContainer.viewContext
     }
     
@@ -25,6 +27,8 @@ class CoreDataController {
     
     init() {
         initalizeStack()
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(managedObjectContextObjectsDidChange), name: NSNotification.Name.NSManagedObjectContextObjectsDidChange, object: context)
     }
     
     func save(_ object: NSManagedObject) {
@@ -33,6 +37,16 @@ class CoreDataController {
             try context.save()
         } catch {
             print("error")
+        }
+    }
+    
+    @objc func managedObjectContextObjectsDidChange(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        
+        if let updates = userInfo[NSUpdatedObjectsKey] as? Set<NSManagedObject>, updates.count > 0 {
+            print("updates")
+            print(updates)
+            updateDelegates.forEach { $0() }
         }
     }
 }
