@@ -9,6 +9,7 @@ import UIKit
 
 enum GroupsChannel: RouterChannel {
     case group(Group)
+    case newGroupAlert(Alert)
 }
 
 final class GroupsRouter: BaseRouter<GroupsChannel> {
@@ -31,6 +32,8 @@ final class GroupsRouter: BaseRouter<GroupsChannel> {
         switch channel {
         case .group(let group):
             GroupsRouter(group: group, groupService: groupService).route()
+        case .newGroupAlert(let alert):
+            presentAlert(alert)
         }
     }
 }

@@ -13,13 +13,7 @@ struct CoreDataGroupsService: GroupsService {
     private let controller: CDGroupController = CDGroupController()
         
     func tryToInitialize() {
-        guard fetchMain() == nil else { return }
-        let group = controller.createGroup(named: "Home", for: nil)
-        let group1 = controller.createGroup(named: "Groups 1", for: group)
-        controller.createGroup(named: "Groups 2", for: group)
-        controller.createGroup(named: "Groups 3", for: group)
-        controller.createGroup(named: "Groups 4", for: group)
-        controller.createGroup(named: "Groups 5", for: group1)
+        if fetchMain() == nil { controller.createGroup(named: "Home", for: nil) }
     }
     
     func fetchMain() -> Group? {

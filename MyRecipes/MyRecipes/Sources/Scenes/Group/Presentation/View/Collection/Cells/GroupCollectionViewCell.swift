@@ -40,6 +40,7 @@ class GroupCollectionViewCell: UICollectionViewCell {
         if viewData.roundTop && viewData.roundBottom { roundAll() }
         else if viewData.roundTop { roundTop() }
         else if viewData.roundBottom { roundBottom() }
+        else { unroundAll() }
     }
     
     private func roundTop() {
@@ -56,6 +57,10 @@ class GroupCollectionViewCell: UICollectionViewCell {
     
     private func roundAll() {
         containerView.layer.cornerRadius = .small
+    }
+    
+    private func unroundAll() {
+        containerView.layer.cornerRadius = .zero
     }
 
 }

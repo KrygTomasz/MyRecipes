@@ -58,9 +58,7 @@ final class GroupsViewModel {
         
         input.onNewGroupClicked.emit(onNext: { [weak self] _ in
             guard let self = self else { return }
-            self.groupService.create(named: "Test", parentId: self.group.id)
-            self.refreshData()
-            print("NEW GROUP FOR \(self.group.name)")
+            self.route(.newGroupAlert(self.prepareNewGroupAlert()))
         }).disposed(by: disposeBag)
         
         input.onNewNoteClicked.emit(onNext: { [weak self] _ in
@@ -73,5 +71,19 @@ final class GroupsViewModel {
         self.group = updatedGroup
         let viewData = GroupsViewDataMapper.map([updatedGroup.groups])
         self.output.viewData.accept(viewData)
+    }
+    
+    private func prepareNewGroupAlert() -> Alert {
+        return AlertBuilder()
+            .set(color: Theme.default.colors.primary)
+            .set(title: "New Group")
+            .set(description: "Enter a name for this group")
+            .addTextField(.init(placeholder: "Name"))
+            .addTextAcceptButton(.init(title: "OK", action: { [weak self] (name) in
+                guard let self = self else { return }
+                self.groupService.create(named: name, parentId: self.group.id)
+            }))
+            .addCancelButton(.init(title: "Cancel"))
+            .build()
     }
 }

@@ -20,4 +20,8 @@ extension Router {
     func routeBack() {
         AppRouter.shared.pop()
     }
+    
+    func presentAlert(_ alert: Alert) {
+        AppRouter.shared.present(alert.alert)
+    }
 }

@@ -56,6 +56,8 @@
 		231D31CD25699A4E007437B9 /* HalfModalActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D31CC25699A4E007437B9 /* HalfModalActivityViewController.swift */; };
 		231D31DE2569D485007437B9 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D31DD2569D485007437B9 /* UIView+AutoLayout.swift */; };
 		231D31E32569D79B007437B9 /* LabelCollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D31E22569D79B007437B9 /* LabelCollectionHeader.swift */; };
+		23A7C21D256B231700A9E06F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A7C21C256B231700A9E06F /* Alert.swift */; };
+		23A7C222256B233400A9E06F /* AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A7C221256B233400A9E06F /* AlertBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +131,8 @@
 		231D31CC25699A4E007437B9 /* HalfModalActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalActivityViewController.swift; sourceTree = "<group>"; };
 		231D31DD2569D485007437B9 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		231D31E22569D79B007437B9 /* LabelCollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionHeader.swift; sourceTree = "<group>"; };
+		23A7C21C256B231700A9E06F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		23A7C221256B233400A9E06F /* AlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +395,7 @@
 		0AA31AA3256432A70014D879 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				23A7C21B256B230D00A9E06F /* Alert */,
 				0AA31AA4256432B00014D879 /* Extensions */,
 				231D31CC25699A4E007437B9 /* HalfModalActivityViewController.swift */,
 				231D31E22569D79B007437B9 /* LabelCollectionHeader.swift */,
@@ -487,6 +492,15 @@
 				0A8BD9D42566CC070084ED9F /* CDGroup+CoreDataProperties.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		23A7C21B256B230D00A9E06F /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				23A7C21C256B231700A9E06F /* Alert.swift */,
+				23A7C221256B233400A9E06F /* AlertBuilder.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -633,6 +647,7 @@
 				0A9093602565BFC400890BEF /* MyRecipes.xcdatamodeld in Sources */,
 				0AA31A922564321B0014D879 /* GroupsViewController.swift in Sources */,
 				231D31DE2569D485007437B9 /* UIView+AutoLayout.swift in Sources */,
+				23A7C21D256B231700A9E06F /* Alert.swift in Sources */,
 				0AFFB79525658859008954EA /* Group.swift in Sources */,
 				0AA31A5C256424EF0014D879 /* Router.swift in Sources */,
 				0AFFB7C8256592BF008954EA /* ThemeColors.swift in Sources */,
@@ -647,6 +662,7 @@
 				0AA31A5F256424EF0014D879 /* AppDelegate.swift in Sources */,
 				0A560EC725657A30000BF6E1 /* GroupCollectionViewCell.swift in Sources */,
 				0AA31A5A256424EF0014D879 /* Margin.swift in Sources */,
+				23A7C222256B233400A9E06F /* AlertBuilder.swift in Sources */,
 				0AA31AA6256432BF0014D879 /* UIColor+OnDark.swift in Sources */,
 				0AFFB7B125658935008954EA /* GroupsViewDataMapper.swift in Sources */,
 				0AFFB7A9256588D2008954EA /* GroupsService.swift in Sources */,
