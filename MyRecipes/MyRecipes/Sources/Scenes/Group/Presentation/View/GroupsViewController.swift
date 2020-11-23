@@ -16,8 +16,6 @@ final class GroupsViewController: UIViewController {
     private let disposeBag: DisposeBag = DisposeBag()
     private let viewModel: GroupsViewModel
     private let adapter: GroupsCollectionViewAdapter = GroupsCollectionViewAdapter()
-    private let newGroupTrigger: PublishRelay<Void> = PublishRelay()
-    private let newNoteTrigger: PublishRelay<Void> = PublishRelay()
     
     init(viewModel: GroupsViewModel) {
         self.viewModel = viewModel
@@ -32,9 +30,6 @@ final class GroupsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Theme.default.colors.background
         adapter.setup(collectionView: collectionView, viewModel: viewModel)
-        viewModel.transform(input: .init(onItemSelected: collectionView.rx.itemSelected.asSignal(),
-                                         onNewGroupClicked: newGroupTrigger.asSignal(),
-                                         onNewNoteClicked: newNoteTrigger.asSignal()))
         title = viewModel.output.title
         setupToolbar()
         binding()
@@ -43,6 +38,11 @@ final class GroupsViewController: UIViewController {
     private func binding() {
         viewModel.output.viewData.asDriver().drive(onNext: { [weak self] _ in
             self?.collectionView.reloadData()
+        })
+        .disposed(by: disposeBag)
+        
+        collectionView.rx.itemSelected.asDriver().drive(onNext: { [weak self] indexPath in
+            self?.viewModel.input.onItemSelected.accept(indexPath)
         })
         .disposed(by: disposeBag)
     }
@@ -74,10 +74,10 @@ final class GroupsViewController: UIViewController {
     }
     
     @objc private func onNewGroupClicked() {
-        newGroupTrigger.accept(())
+        viewModel.input.onNewGroupClicked.accept(())
     }
     
     @objc private func onNewNoteClicked() {
-        newNoteTrigger.accept(())
+        viewModel.input.onNewNoteClicked.accept(())
     }
 }

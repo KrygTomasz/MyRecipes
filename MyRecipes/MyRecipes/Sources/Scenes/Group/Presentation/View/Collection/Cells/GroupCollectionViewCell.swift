@@ -20,18 +20,21 @@ class GroupCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupView() {
+        containerView.backgroundColor = .clear
         arrowImageView.tintColor = Theme.default.colors.primary
         contentView.setMediumMargins()
-        containerView.setMargin(vertical: .zero, horizontal: .medium)
+        containerView.setMargin(vertical: .zero, horizontal: .zero)
     }
     
     func configure(with viewData: GroupViewData) {
+        backgroundColor = viewData.color
         titleLabel.text = viewData.title
         titleLabel.textColor = viewData.titleColor
         numberLabel.text = viewData.quantityText
         numberLabel.textColor = viewData.quantityColor
-        containerView.backgroundColor = viewData.color
-        roundCorners(with: viewData)
+        DispatchQueue.main.async { [weak self] in
+            self?.roundCorners(with: viewData)
+        }
     }
     
     // MARK: – Helpers
@@ -44,23 +47,25 @@ class GroupCollectionViewCell: UICollectionViewCell {
     }
     
     private func roundTop() {
-        containerView.clipsToBounds = true
-        containerView.layer.cornerRadius = .small
-        containerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        round(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
     }
     
     private func roundBottom() {
-        containerView.clipsToBounds = true
-        containerView.layer.cornerRadius = .small
-        containerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        round(corners: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner])
     }
     
     private func roundAll() {
-        containerView.layer.cornerRadius = .small
+        round(corners: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner])
     }
     
     private func unroundAll() {
-        containerView.layer.cornerRadius = .zero
+        round(corners: [])
     }
+    
+    private func round(corners: CACornerMask) {
+        clipsToBounds = true
+        layer.cornerRadius = .small
+        layer.maskedCorners = corners
 
+    }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 class Alert {
     struct TextField {
+        var text: String? = nil
         var placeholder: String
     }
     
@@ -35,6 +36,7 @@ class Alert {
         if let textField = textField {
             alert.addTextField { (field) in
                 field.placeholder = textField.placeholder
+                field.text = textField.text
             }
         }
         if let inputAcceptButton = inputAcceptButton {

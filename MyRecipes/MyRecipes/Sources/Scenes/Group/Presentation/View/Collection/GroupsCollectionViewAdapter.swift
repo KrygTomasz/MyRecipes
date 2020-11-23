@@ -30,9 +30,11 @@ final class GroupsCollectionViewAdapter: NSObject, UICollectionViewDelegate, UIC
     
     private func prepareTableLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: collectionView.bounds.width, height: Constants.tableCellHeight)
+        let spacing: CGFloat = .medium
+        layout.itemSize = CGSize(width: collectionView.bounds.width - spacing * 2, height: Constants.tableCellHeight)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
+        layout.sectionInset = .init(top: 0, left: spacing, bottom: spacing, right: spacing)
         return layout
     }
     
@@ -103,4 +105,18 @@ final class GroupsCollectionViewAdapter: NSObject, UICollectionViewDelegate, UIC
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: Constants.headerHeight)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { suggestedActions in
+                    let rename = UIAction(title: "Rename", image: UIImage(systemName: "pencil")) { [weak self] _ in
+                        self?.viewModel.input.onRenameGroupClicked.accept(indexPath)
+                    }
+                    let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive) { [weak self] _ in
+                        self?.viewModel.input.onDeleteGroupClicked.accept(indexPath)
+                    }
+                    return UIMenu(title: "", children: [rename, delete])
+                }
+    }
+    
+    
 }

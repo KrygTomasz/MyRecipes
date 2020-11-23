@@ -17,18 +17,26 @@ struct CoreDataGroupsService: GroupsService {
     }
     
     func fetchMain() -> Group? {
-        let group = controller.fetch(predicate: mainPredicate)
+        let group = controller.fetchMain()
         return CDGroupMapper.map(group)
     }
     
     func create(named: String, parentId: Int) {
-        guard let parent = controller.fetch(predicate: idPredicate(parentId)) else { return }
+        guard let parent = controller.fetch(id: parentId) else { return }
         controller.createGroup(named: named, for: parent)
     }
     
     func fetch(id: Int) -> Group? {
-        let group = controller.fetch(predicate: idPredicate(id))
+        let group = controller.fetch(id: id)
         return CDGroupMapper.map(group)
+    }
+    
+    func update(id: Int, with name: String) {
+        controller.update(id: id, with: name)
+    }
+    
+    func remove(id: Int) {
+        controller.delete(id: id)
     }
     
     func addUpdateDelegate(_ updateTrigger: @escaping () -> Void) {
@@ -37,13 +45,5 @@ struct CoreDataGroupsService: GroupsService {
     
     func removeLastUpdateDelegate() {
         controller.updateDelegates.removeLast()
-    }
-        
-    // MARK: – Predicates
-    
-    private let mainPredicate: NSPredicate = NSPredicate(format: "parent = nil")
-    
-    private func idPredicate(_ id: Int) -> NSPredicate {
-        return NSPredicate(format: "identifier = \(id)")
     }
 }

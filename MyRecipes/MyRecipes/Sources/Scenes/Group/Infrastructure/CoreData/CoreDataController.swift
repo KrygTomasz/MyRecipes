@@ -31,8 +31,17 @@ class CoreDataController {
         notificationCenter.addObserver(self, selector: #selector(managedObjectContextObjectsDidChange), name: NSNotification.Name.NSManagedObjectContextObjectsDidChange, object: context)
     }
     
-    func save(_ object: NSManagedObject) {
+    func add(_ object: NSManagedObject) {
         context.insert(object)
+        save()
+    }
+    
+    func remove(_ object: NSManagedObject) {
+        context.delete(object)
+        save()
+    }
+    
+    func save() {
         do {
             try context.save()
         } catch {

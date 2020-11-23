@@ -11,6 +11,8 @@ public protocol GroupsService  {
     func fetchMain() -> Group?
     func create(named: String, parentId: Int)
     func fetch(id: Int) -> Group?
+    func update(id: Int, with name: String)
+    func remove(id: Int)
     func addUpdateDelegate(_ updateTrigger: @escaping () -> Void)
     func removeLastUpdateDelegate()
 }
